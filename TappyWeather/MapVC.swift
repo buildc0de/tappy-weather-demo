@@ -80,6 +80,7 @@ fileprivate extension MapVC {
     
     func configureMapView() {
         mapView.isZoomEnabled = false
+        mapView.showsUserLocation = true
     }
     
 }
