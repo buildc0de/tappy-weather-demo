@@ -1,0 +1,5 @@
+// Common
+"generic-error-alert.title" = "Error";
+
+// Map View
+"map-view.location-services-error.message" = "Location Services are disabled. Please check your Settings";
