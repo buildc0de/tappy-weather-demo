@@ -1,6 +1,8 @@
 import MapKit
 import UIKit
 
+// Cześć, Roman! 👋😜 Здраво, Ilija! 👋😜
+
 final class MapVC: UIViewController {
     
     struct Options {
