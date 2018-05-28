@@ -7,12 +7,17 @@ final class MapVC: UIViewController {
         static let currentLocationRegionDistance: CLLocationDistance = 100_000
     }
     
+    enum SegueIdentifier: String {
+        case showWeather
+    }
+    
     // MARK: - @IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - Private
     fileprivate var locationManager: CLLocationManager!
     fileprivate var currentLocation: CLLocation?
+    fileprivate var selectedLocationCoordinate: CLLocationCoordinate2D?
     
 }
 
@@ -26,6 +31,8 @@ extension MapVC {
         
         configureLocationManager()
         configureLocationServices()
+        configureDoubleTapGesture()
+        configureMapView()
         
     }
     
@@ -58,6 +65,19 @@ fileprivate extension MapVC {
             
         }
         
+    }
+    
+    func configureDoubleTapGesture() {
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didDetectDoubleTap))
+        gestureRecognizer.numberOfTapsRequired = 2
+        gestureRecognizer.delegate = self
+        mapView.addGestureRecognizer(gestureRecognizer)
+        
+    }
+    
+    func configureMapView() {
+        mapView.isZoomEnabled = false
     }
     
 }
@@ -100,6 +120,23 @@ fileprivate extension MapVC {
         mapView.setRegion(region, animated: false)
 
     }
+    
+    @objc func didDetectDoubleTap(sender: UITapGestureRecognizer) {
+        
+        let touchLocation = sender.location(in: mapView)
+        let mapTapLocationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+        print("Did detect tap at latitude: \(mapTapLocationCoordinate.latitude), longitude: \(mapTapLocationCoordinate.longitude)")
+        
+        navigateToWeatherView(locationCoordinate: mapTapLocationCoordinate)
+        
+    }
+    
+    func navigateToWeatherView(locationCoordinate: CLLocationCoordinate2D) {
+        
+        selectedLocationCoordinate = locationCoordinate
+        performSegue(withIdentifier: SegueIdentifier.showWeather.rawValue, sender: self)
+        
+    }
 
 }
 
@@ -130,6 +167,36 @@ extension MapVC: CLLocationManagerDelegate {
             
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
+        }
+        
+    }
+    
+}
+
+// MARK: - UIGestureRecognizerDelegate
+
+extension MapVC: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+}
+
+// MARK: - Segues
+
+extension MapVC: SegueHandler {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let identifierCase = segueIdentifierCase(for: segue)
+        switch identifierCase {
+            
+        case .showWeather:
+            
+            let vc = segue.destination as! WeatherVC
+            vc.locationCoordinate = selectedLocationCoordinate!
+            
         }
         
     }

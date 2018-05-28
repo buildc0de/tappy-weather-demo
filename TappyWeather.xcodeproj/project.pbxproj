@@ -13,6 +13,8 @@
 		95140AFF20BC2C1D007235C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95140AFE20BC2C1D007235C9 /* Assets.xcassets */; };
 		95140B0220BC2C1E007235C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95140B0020BC2C1E007235C9 /* LaunchScreen.storyboard */; };
 		95140B0B20BC3474007235C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95140B0A20BC3474007235C9 /* Localizable.strings */; };
+		951AD08D20BC3DFD00F1EA3F /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951AD08C20BC3DFD00F1EA3F /* WeatherVC.swift */; };
+		951AD09020BC438900F1EA3F /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951AD08F20BC438900F1EA3F /* SegueHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		95140B0120BC2C1E007235C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95140B0320BC2C1E007235C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95140B0A20BC3474007235C9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		951AD08C20BC3DFD00F1EA3F /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
+		951AD08F20BC438900F1EA3F /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,25 @@
 		95140AF620BC2C1C007235C9 /* TappyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				951AD08E20BC437A00F1EA3F /* Common */,
 				95140B0320BC2C1E007235C9 /* Info.plist */,
+				95140B0A20BC3474007235C9 /* Localizable.strings */,
 				95140AF720BC2C1C007235C9 /* AppDelegate.swift */,
 				95140AF920BC2C1C007235C9 /* MapVC.swift */,
-				95140B0A20BC3474007235C9 /* Localizable.strings */,
+				951AD08C20BC3DFD00F1EA3F /* WeatherVC.swift */,
 				95140AFE20BC2C1D007235C9 /* Assets.xcassets */,
 				95140B0020BC2C1E007235C9 /* LaunchScreen.storyboard */,
 				95140AFB20BC2C1C007235C9 /* Main.storyboard */,
 			);
 			path = TappyWeather;
+			sourceTree = "<group>";
+		};
+		951AD08E20BC437A00F1EA3F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				951AD08F20BC438900F1EA3F /* SegueHandler.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951AD09020BC438900F1EA3F /* SegueHandler.swift in Sources */,
 				95140AFA20BC2C1C007235C9 /* MapVC.swift in Sources */,
+				951AD08D20BC3DFD00F1EA3F /* WeatherVC.swift in Sources */,
 				95140AF820BC2C1C007235C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
