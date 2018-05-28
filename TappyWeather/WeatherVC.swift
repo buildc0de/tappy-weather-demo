@@ -9,6 +9,10 @@ final class WeatherVC: UIViewController {
     }
     
     // MARK: - @IBOutlets
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var conditionLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     
     // MARK: - Public
     var locationCoordinate: CLLocationCoordinate2D!
@@ -110,7 +114,9 @@ fileprivate extension WeatherVC {
             let weatherInfo = try decoder.decode(WeatherInfo.self, from: data)
             print(weatherInfo)
             
-            updateView(with: weatherInfo)
+            DispatchQueue.main.async {
+                self.updateView(with: weatherInfo)
+            }
             
         } catch {
             fatalError("Can't parse JSON")
@@ -119,6 +125,15 @@ fileprivate extension WeatherVC {
     }
     
     func updateView(with weatherInfo: WeatherInfo) {
+        
+        latitudeLabel.text = "\(weatherInfo.coordinates.latitude)"
+        longitudeLabel.text = "\(weatherInfo.coordinates.longitude)"
+        conditionLabel.text = weatherInfo.weatherCondition.first?.conditionName
+        
+        let temperatureInK = weatherInfo.atmosphericInformation.temperatureKelvin
+        let temperatureInF = "\(String(format:"%.0f", temperatureInK * (9/5) - 459.67))°F"
+        let temperatureInC = "\(String(format:"%.0f", temperatureInK - 273.15))°C"
+        temperatureLabel.text = "\(temperatureInF) (\(temperatureInC))"
         
     }
     
