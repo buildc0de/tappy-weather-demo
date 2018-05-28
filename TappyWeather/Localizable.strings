@@ -3,3 +3,7 @@
 
 // Map View
 "map-view.location-services-error.message" = "Location Services are disabled. Please check your Settings";
+
+// Weather View
+"api-key-alert.title" = "API Key is missing";
+"api-key-alert.message" = "Please enter your API key from openweathermap.org";

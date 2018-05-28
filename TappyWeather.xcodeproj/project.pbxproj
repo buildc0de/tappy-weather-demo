@@ -15,6 +15,7 @@
 		95140B0B20BC3474007235C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95140B0A20BC3474007235C9 /* Localizable.strings */; };
 		951AD08D20BC3DFD00F1EA3F /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951AD08C20BC3DFD00F1EA3F /* WeatherVC.swift */; };
 		951AD09020BC438900F1EA3F /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951AD08F20BC438900F1EA3F /* SegueHandler.swift */; };
+		951AD09220BC4DED00F1EA3F /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951AD09120BC4DED00F1EA3F /* WeatherInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		95140B0A20BC3474007235C9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		951AD08C20BC3DFD00F1EA3F /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		951AD08F20BC438900F1EA3F /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
+		951AD09120BC4DED00F1EA3F /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				95140AF720BC2C1C007235C9 /* AppDelegate.swift */,
 				95140AF920BC2C1C007235C9 /* MapVC.swift */,
 				951AD08C20BC3DFD00F1EA3F /* WeatherVC.swift */,
+				951AD09120BC4DED00F1EA3F /* WeatherInfo.swift */,
 				95140AFE20BC2C1D007235C9 /* Assets.xcassets */,
 				95140B0020BC2C1E007235C9 /* LaunchScreen.storyboard */,
 				95140AFB20BC2C1C007235C9 /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				951AD09020BC438900F1EA3F /* SegueHandler.swift in Sources */,
+				951AD09220BC4DED00F1EA3F /* WeatherInfo.swift in Sources */,
 				95140AFA20BC2C1C007235C9 /* MapVC.swift in Sources */,
 				951AD08D20BC3DFD00F1EA3F /* WeatherVC.swift in Sources */,
 				95140AF820BC2C1C007235C9 /* AppDelegate.swift in Sources */,
