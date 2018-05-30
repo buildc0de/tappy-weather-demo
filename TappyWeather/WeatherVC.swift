@@ -103,7 +103,7 @@ fileprivate extension WeatherVC {
         do {
             
             guard
-                let jsonData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyHashable],
+                let jsonData = try JSONSerialization.jsonObject(with: data) as? [String: AnyHashable],
                 let httpStatusCode = jsonData["cod"] as? Int,
                 httpStatusCode == 200
                 else {
