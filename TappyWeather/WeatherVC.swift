@@ -17,8 +17,6 @@ final class WeatherVC: UIViewController {
     // MARK: - Public
     var locationCoordinate: CLLocationCoordinate2D!
     
-    // MARK: - Private
-    
 }
 
 // MARK: - Lifecycle
@@ -31,7 +29,6 @@ extension WeatherVC {
         saveAPIKeyIfNeeded() { [unowned self] in
             self.fetchWeatherInfo()
         }
-        fetchWeatherInfo()
         
     }
     
@@ -62,6 +59,8 @@ fileprivate extension WeatherVC {
             
             present(alert, animated: true)
             
+        } else {
+            completion?()
         }
         
     }
